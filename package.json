@@ -1,19 +1,24 @@
 {
-  "name": "basic-react-app",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VaibhavPandey712/devops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VaibhavPandey712/devops/issues"
+  },
+  "homepage": "https://github.com/VaibhavPandey712/devops#readme",
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.1"
+    "express": "^5.2.1"
   }
 }
