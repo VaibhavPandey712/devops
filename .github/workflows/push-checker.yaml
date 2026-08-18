@@ -1,0 +1,14 @@
+name: Push Checker
+
+on: push
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: pwd
+
+      - run: ls

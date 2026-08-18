@@ -1,19 +1,11 @@
-name: Building Blocks
+name: building_blocks
 
-on: push
+on: workflow_dispatch
 
 jobs:
-  echo-hello:
+  hello:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Say Hello
-        run: echo "Hello, world"
-  echo-goodbye:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Failed Steps
-        run: |
-          echo "This step will fail"
-          exit 1
-      - name: Say Bye
-        run: echo "Bye"
+      - name: Print message
+        run: echo "Welcome to GitHub Actions!"
