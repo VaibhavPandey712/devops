@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: Print message
-        run: echo "Welcome to GitHub Actions!"
+        run: echo "Welcome to the GitHub Actions!"
