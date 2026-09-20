@@ -1,0 +1,19 @@
+name: PR Gatekeeper
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print pull request details
+        run: |
+          echo "Merging into branch: ${{ github.event.pull_request.base.ref }}"
+          echo "PR number: ${{ github.event.pull_request.number }}"
+
+      - name: Complete gatekeeper checks
+        run: echo "Gatekeeper checks complete"
