@@ -1,0 +1,76 @@
+name: System Report
+
+on:
+  push:
+
+jobs:
+  system-info:
+    name: System Info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print OS name and kernel version
+        run: |
+          echo "=== OS Information ==="
+          cat /etc/os-release
+          echo "=== Kernel Version ==="
+          uname -r
+
+      - name: Print free disk space
+        run: |
+          echo "=== Disk Space ==="
+          df -h
+
+      - name: Print current date and time
+        run: |
+          echo "=== Date & Time ==="
+          date
+
+      - name: Install tree using apt-get
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tree
+
+      - name: Display runner home directory structure
+        run: |
+          echo "=== Home Directory Structure (2 Levels Deep) ==="
+          tree -L 2 ~
+
+  tool-check:
+    name: Tool Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq using apt-get
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Create report.json
+        run: |
+          cat << 'EOF' > report.json
+          {
+            "status": "operational",
+            "environment": "github-actions-runner",
+            "version": "1.0.0"
+          }
+          EOF
+
+      - name: Read a value using jq
+        run: |
+          echo "Extracted value from report.json:"
+          jq -r '.status' report.json
+
+      - name: Print tool versions
+        run: |
+          python3 --version
+          git --version
+          jq --version
+
+      - name: Finish report
+        run: |
+          echo "Report complete"
